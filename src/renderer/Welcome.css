@@ -1,0 +1,67 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+.welcome-bg {
+    height: 100vh;
+
+    background: linear-gradient(
+            200.96deg,
+            #fedc2a -29.09%,
+            #dd5789 51.77%,
+            #7a2c9e 129.35%
+    );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome {
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+}
+
+.welcome h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+
+    margin: 1rem;
+}
+
+.welcome p {
+    width: 480px;
+
+    font-size: 1.125rem;
+    font-weight: 300;
+    text-align: center;
+
+    margin: 1rem;
+}
+
+.welcome a {
+    width: 480px;
+
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-align: center;
+
+    margin: 3rem;
+
+    color: white;
+    text-decoration: underline;
+
+    cursor: pointer;
+    text-align: center;
+}
+
+.welcome a:hover {
+    text-decoration: none;
+}
