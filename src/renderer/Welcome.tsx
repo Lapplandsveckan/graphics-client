@@ -13,7 +13,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ onFinished }) => {
     useLayoutEffect(() => {
         if (!animation) return;
 
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             gsap.to(app.current, {
                 duration: 1.6,
                 opacity: 0,
