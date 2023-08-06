@@ -6,12 +6,12 @@ export interface WelcomeProps {
     onFinished: () => void;
 }
 
-export const Welcome: React.FC<WelcomeProps> = ({ onFinished }) => {
+export const WelcomeAnimator: React.FC<WelcomeProps> = ({ onFinished }) => {
     const app = useRef<HTMLDivElement>(null);
-    const [animation, setAnimation] = useState<boolean>(false);
+    const [animating, setAnimating] = useState<boolean>(false);
 
     useLayoutEffect(() => {
-        if (!animation) return;
+        if (!animating) return;
 
         const ctx = gsap.context(() => {
             gsap.to(app.current, {
@@ -25,7 +25,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ onFinished }) => {
         }, app);
 
         return () => ctx.revert();
-    }, [animation]);
+    }, [animating]);
 
     return (
         <div className="welcome-bg" ref={app}>
@@ -33,8 +33,20 @@ export const Welcome: React.FC<WelcomeProps> = ({ onFinished }) => {
                 <h1>Welcome to CG Control</h1>
                 <p>Here you will be able to master the ability of controlling marvelous graphics in real time.</p>
 
-                <a onClick={() => setAnimation(true)}>Click here to start your journey</a>
+                <a onClick={() => setAnimating(true)}>Click here to start your journey</a>
             </div>
         </div>
+    );
+};
+
+export const Welcome: React.FC<WelcomeProps> = ({ onFinished }) => {
+    const [animated, setAnimated] = useState<boolean>(false);
+    if (animated) return null;
+
+    return (
+        <WelcomeAnimator onFinished={() => {
+            setAnimated(true);
+            onFinished();
+        }} />
     );
 };

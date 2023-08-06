@@ -3,7 +3,14 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 .welcome-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+
     height: 100vh;
+    width: 100vw;
 
     background: linear-gradient(
             200.96deg,
