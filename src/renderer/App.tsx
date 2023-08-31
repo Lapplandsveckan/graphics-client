@@ -11,11 +11,38 @@ manager.connect()
 export default function App() {
     return (
         <div className="main">
-            <Welcome onFinished={() => {}} />
+            {/* <Welcome onFinished={() => {}} /> */}
+
             <div className="app">
                 <StatusButton />
                 <CasparLog/>
             </div>
+        </div>
+    );
+};
+
+const CasparLog: React.FC = () => {
+    const [logs, setLogs] = React.useState<string>('');
+
+    useEffect(() => {
+        const listener = (logs: string) => {
+            setLogs(logs);
+        };
+
+        manager.caspar.on('logs', listener);
+        manager.caspar.getLogs().then(listener);
+
+        return () => {
+            manager.caspar.off('logs', listener);
+        };
+    }, []);
+
+    return (
+        <div className="logs" style={{
+            whiteSpace: 'pre-wrap',
+        }}
+        >
+            {logs}
         </div>
     );
 };

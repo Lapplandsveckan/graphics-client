@@ -12,4 +12,29 @@ body {
     font-family: sans-serif;
 
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+
+    overflow-y: scroll;
+}
+
+.status-button {
+    position: absolute;
+    border: 1px fuchsia dotted;
+    border-radius: 5%;
+    font-size: 2vh;
+}
+
+.logs {
+    left: 10vw;
 }
