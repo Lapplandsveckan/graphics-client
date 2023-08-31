@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
+import {ManagerApi} from './api/api';
 
 export type Channels = '';
 
